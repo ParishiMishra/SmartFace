@@ -1,0 +1,223 @@
+:root {
+    --primary-color: #4CAF50; /* Green for growth and nature */
+    --primary-light: #66BB6A;
+    --secondary-color: #f0f4f7;
+    --card-bg: #FFFFFF;
+    --text-color: #333333;
+    --white: #FFFFFF;
+    --google-btn-bg: #7f0f05;
+    --google-btn-hover: #550a03;
+    --font-family: 'Poppins', sans-serif;
+    --border-radius: 12px;
+    --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    width: 100%;
+    max-width: 900px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.school-logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.5em;
+}
+
+/* Header styles */
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 24px;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+    color: white;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.header-title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.logout-btn {
+    background: rgba(255,255,255,0.12);
+    color: white;
+    border-radius: 8px;
+    padding: 8px 12px;
+    border: 1px solid rgba(255,255,255,0.18);
+    cursor: pointer;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .card { padding: 1.25rem; }
+    h2 { font-size: 1.5rem; }
+    .button-group { flex-direction: column; }
+}
+
+p {
+    color: #6c757d;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    gap: 10px;
+}
+
+.btn:hover {
+    background-color: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+.google-btn {
+    background-color: #A32F2D;
+    margin-top: 1rem;
+}
+
+.google-btn:hover {
+    background-color: var(--google-btn-hover);
+}
+
+.select-group {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ced4da;
+    border-radius: var(--border-radius);
+    background-color: var(--white);
+    font-family: inherit;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+select:disabled {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-top: 56.25%; /* 16:9 aspect ratio */
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#webcam-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.status-box {
+    background-color: #e3f2fd;
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.status-box p {
+    margin: 0;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.preview-image { max-width: 120px; border: 1px solid #ddd; border-radius: 8px; }
+
+.scan-btn {
+    background-color: #28a745;
+}
+
+.scan-btn:hover {
+    background-color: #218838;
+}
+
+.fallback-btn {
+    background-color: #ffc107;
+}
+
+.fallback-btn:hover {
+    background-color: #e0a800;
+}
+
+
+.google-logo-icon {
+    height: 20px; 
+    width: auto; 
+    margin-right: 10px; 
+}
+
+
+.google-btn .google-logo-icon {
+    height: 20px;
+    width: auto;
+    margin-right: 10px;
+}
