@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #4CAF50; /* Green for growth and nature */
+    --primary-color: #4CAF50; 
     --primary-light: #66BB6A;
     --secondary-color: #f0f4f7;
     --card-bg: #FFFFFF;
@@ -220,4 +220,5 @@ select:disabled {
     height: 20px;
     width: auto;
     margin-right: 10px;
+
 }
