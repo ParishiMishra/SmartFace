@@ -256,16 +256,13 @@ const renderAttendancePage = async () => {
     const captureFaceBtn = document.getElementById('capture-face-btn');
     const manualBtn = document.getElementById('manual-fallback-btn');
 
-    // Start camera right away; load the model asynchronously so a missing
-    // model doesn't prevent the camera from starting. Capture will remain
-    // disabled until the model is successfully loaded.
+  
     let modelReady = false;
     try {
-        // Prefer front-facing camera when available
         const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' } });
         video.srcObject = stream;
 
-        // Ensure video metadata is loaded and playback has started
+     
         await new Promise((resolve) => {
             const onLoaded = () => {
                 video.play().then(resolve).catch((err) => {
@@ -280,8 +277,7 @@ const renderAttendancePage = async () => {
         statusText.textContent = 'Camera started. Loading model...';
         manualBtn.disabled = false;
 
-        // Load model in background; enable capture button even if model fails.
-        // If model isn't ready we will fallback to preview & download on capture.
+    
         captureFaceBtn.disabled = false;
         loadTFLiteModel().then(() => {
             modelReady = true;
@@ -302,7 +298,6 @@ const renderAttendancePage = async () => {
         captureFaceBtn.disabled = true;
         statusText.textContent = 'Capturing face...';
 
-        // Create canvas with a safe fallback size if video metadata isn't ready
         const canvas = document.createElement('canvas');
         const width = video.videoWidth || 640;
         const height = video.videoHeight || 480;
@@ -460,12 +455,12 @@ function openQRScanner() {
 }
 
 async function handleQRPayload(data) {
-    // Expect QR payload to be either plain ID or JSON like { "studentId": "docId" } or { "rollNumber": "23" }
+  
     let payload = null;
     try {
         payload = JSON.parse(data);
     } catch (e) {
-        // not JSON, treat as raw id
+       
         payload = { studentId: data };
     }
 
@@ -539,7 +534,7 @@ function wireCsvButton() {
     });
 }
 
-// Make sure wiring runs after renders (header is re-created)
+
 window.addEventListener('hashchange', () => setTimeout(wireCsvButton, 50));
 setTimeout(wireCsvButton, 100);
 
@@ -566,4 +561,5 @@ function generatePrototypeCSV() {
     a.click();
     a.remove();
     setTimeout(() => URL.revokeObjectURL(url), 2000);
+
 }
